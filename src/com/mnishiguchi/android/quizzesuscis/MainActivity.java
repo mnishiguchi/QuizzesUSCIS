@@ -1,7 +1,5 @@
 package com.mnishiguchi.android.quizzesuscis;
 
-import com.mnishiguchi.android.quizzesuscis.R.id;
-import com.mnishiguchi.android.quizzesuscis.R.layout;
 
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
@@ -17,7 +15,7 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         // Create an onClickListener.
         View.OnClickListener handler = new View.OnClickListener() {
             public void onClick(View clickedView)
@@ -28,7 +26,7 @@ public class MainActivity extends ActionBarActivity
                     {
                         Toast.makeText( MainActivity. this, String.format( "Show List was chosen") ,
                                 Toast. LENGTH_SHORT ) .show() ;
-                        Intent i = new Intent(MainActivity.this, ListActivity.class);
+                        Intent i = new Intent(MainActivity.this, QuizListActivity.class);
                         startActivity(i);
                     }
                     break;

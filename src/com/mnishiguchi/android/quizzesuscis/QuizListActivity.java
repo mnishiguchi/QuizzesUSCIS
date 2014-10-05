@@ -2,7 +2,6 @@ package com.mnishiguchi.android.quizzesuscis;
 
 import java.util.ArrayList;
 
-import android.support.v7.app.ActionBarActivity;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,15 +38,16 @@ public class QuizListActivity extends ListActivity
              * objects - The objects to use as a data source.
              * */
 
-        // get a ListView instance and set an onItemClickListener
+        // Get a ListView instance and set an onItemClickListener
         ListView lv = getListView();
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick( AdapterView<?> adapter, View v, int position, long id ) {
             String question = mQuestions.get(position);
-            Toast.makeText( QuizListActivity. this, String.format("%s was chosen", question),
-                    Toast.LENGTH_SHORT ).show();
+            Toast.makeText(QuizListActivity.this, String.format("%s was chosen", question),
+                    Toast.LENGTH_SHORT).show();
             }
         });
     }
+    
 }
