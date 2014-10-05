@@ -7,24 +7,18 @@
 	android:paddingLeft="@dimen/activity_horizontal_margin"
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	android:paddingTop="@dimen/activity_vertical_margin"
-	tools:context="com.example.quizzesuscis.MainActivity" >
-
-
-
-    <LinearLayout
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:orientation="vertical" >
+	tools:context="com.mnishiguchi.android.quizzesuscis.MainActivity"
+	>
 	    <Button
-	    	android:id="@+id/btn_show_list"
+	    	android:id="@+id/btn_list_mode"
 	    	android:layout_width="match_parent"
 	    	android:layout_height="wrap_content"
-	    	android:text="@string/btn_show_list" />
+	    	android:text="@string/btn_list_mode"
+			/>
 	    <Button
-	    	android:id="@+id/btn_random_pick"
+	    	android:id="@+id/btn_random_mode"
 	    	android:layout_width="match_parent"
 	    	android:layout_height="wrap_content"
-	    	android:text="@string/btn_random_pick" />
-    </LinearLayout>
-
+	    	android:text="@string/btn_random_mode"
+	    	/>
 </LinearLayout>

@@ -1,12 +1,43 @@
-package com.example.quizzesuscis;
+package com.mnishiguchi.android.quizzesuscis;
 
 import java.util.ArrayList;
 
-/**
- * The static method Quizzes.getQuizzes() initialize a set of 100 questions and their answers as an ArrayList of Quiz objects.
- */
-public class Quizzes
+public class Quiz
 {
+    private String question;
+    private String answer;
+    
+    /** CONSTRUCTOR */
+    public Quiz(String question, String answer)
+    {
+        this.question = question;
+        this.answer = answer;
+    }
+
+    public String getAnswer()
+    {
+        return answer;
+    }
+
+    public String getQuestion()
+    {
+        return question;
+    }
+    
+    /**
+     * @return an ArrayList<String> of quiz questions.
+     */
+    static ArrayList<String> getQuestions()
+    {
+        ArrayList<String> questions = new ArrayList<String>(100);
+        ArrayList<Quiz>quizzes = Quiz.getQuizzes();
+        for (Quiz q : quizzes)
+        {
+            questions.add(q.getQuestion() );
+        }
+        return questions;
+    }
+    
     /**
      * @return an ArrayList of Quiz objects.
      */
@@ -94,10 +125,10 @@ public class Quizzes
         quizzes.add(new Quiz("40. Who is the Chief Justice of the United States now?",
                 "John Roberts (John G. Roberts, Jr.)"));
         quizzes.add(new Quiz("41. Under our Constitution, some powers belong to the " +
-        		"federal government. What is one power of the federal government?",
+                "federal government. What is one power of the federal government?",
                 "to print money|to declare war|to create an army|to make treaties"));
         quizzes.add(new Quiz("42. Under our Constitution, some powers belong to the states. " +
-        		"What is one power of the states? ",
+                "What is one power of the states? ",
                 "provide schooling and education|provide protection (police)|" +
                 "provide safety (fire departments)|give a driverÅfs license|approve zoning and land use"));
         quizzes.add(new Quiz("43. Who is the Governor of your state now?",
@@ -235,5 +266,5 @@ public class Quizzes
                 "Veterans Day|Thanksgiving|Christmas"));
         return quizzes;
     }
-
+    
 }

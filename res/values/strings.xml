@@ -2,12 +2,15 @@
 <resources>
 
 	<string name="app_name">QuizzesUSCIS</string>
-	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Settings</string>
 	<string name="btn_show_list">Show List</string>
 	<string name="btn_random_pick">Random Pick</string>
 	<string name="title_activity_random_pick">RandomPickActivity</string>
 	<string name="btn_show_answer">Show Answer</string>
 	<string name="title_activity_list">ListActivity</string>
+	<string name="btn_question_answer">Question/Answer</string>
+	<string name="tv_quiz_hint">question/answer</string>
+	<string name="btn_list_mode">List Mode</string>
+	<string name="btn_random_mode">Random Mode</string>
 
 </resources>

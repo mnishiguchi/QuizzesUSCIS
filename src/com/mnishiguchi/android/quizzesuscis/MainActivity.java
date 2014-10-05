@@ -1,4 +1,7 @@
-package com.example.quizzesuscis;
+package com.mnishiguchi.android.quizzesuscis;
+
+import com.mnishiguchi.android.quizzesuscis.R.id;
+import com.mnishiguchi.android.quizzesuscis.R.layout;
 
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
@@ -17,11 +20,11 @@ public class MainActivity extends ActionBarActivity
         
         // Create an onClickListener.
         View.OnClickListener handler = new View.OnClickListener() {
-            public void onClick(View v)
+            public void onClick(View clickedView)
             {
-                switch (v.getId() )
+                switch (clickedView.getId() )
                 {
-                    case R.id.btn_show_list:
+                    case R.id.btn_list_mode:
                     {
                         Toast.makeText( MainActivity. this, String.format( "Show List was chosen") ,
                                 Toast. LENGTH_SHORT ) .show() ;
@@ -29,7 +32,7 @@ public class MainActivity extends ActionBarActivity
                         startActivity(i);
                     }
                     break;
-                    case R.id.btn_random_pick:
+                    case R.id.btn_random_mode:
                     {
                         Toast.makeText( MainActivity. this, String.format( "Random Pick was chosen") ,
                                 Toast. LENGTH_SHORT ) .show() ;
@@ -39,11 +42,10 @@ public class MainActivity extends ActionBarActivity
                     break;
                 }
             }
-        };
-        
+        };       
         // Get IDs of UI buttons and set the OnClickListener.
-        findViewById(R.id.btn_show_list).setOnClickListener(handler);
-        findViewById(R.id.btn_random_pick).setOnClickListener(handler);
+        findViewById(R.id.btn_list_mode).setOnClickListener(handler);
+        findViewById(R.id.btn_random_mode).setOnClickListener(handler);
     }
 
 }

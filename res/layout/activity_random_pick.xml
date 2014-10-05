@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -7,24 +7,34 @@
 	android:paddingLeft="@dimen/activity_horizontal_margin"
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	android:paddingTop="@dimen/activity_vertical_margin"
-	tools:context="com.example.quizzesuscis.RandomPickActivity" >
-
+	tools:context="com.mnishiguchi.android.quizzesuscis.RandomPickActivity"
+	>
+	<TextView
+		android:id="@+id/tv_quiz"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/tv_quiz_hint"
+		android:textSize="32sp"
+		/>
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_centerInParent="true"
-		android:orientation="vertical" >
-		<TextView
-			android:id="@+id/tv_quiz"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:hint="Random-picked quiz"
-			android:textSize="20dp" />
+		>
 		<Button
-			android:id="@+id/btn_show_answer"
-			android:layout_width="match_parent"
+			android:id="@+id/btn_random_pick"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/btn_show_answer" />
-	</LinearLayout>
+			android:text="@string/btn_random_pick"
+			/>
 
-</RelativeLayout>
+		<ToggleButton
+			android:id="@+id/btn_question_answer"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right"
+			android:textOn="Back to Question"
+    		android:textOff="Show Answer"
+			android:text="@string/btn_question_answer" />
+
+	</LinearLayout>
+</LinearLayout>
