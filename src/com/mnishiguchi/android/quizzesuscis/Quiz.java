@@ -39,6 +39,20 @@ public class Quiz
     }
     
     /**
+     * @return an ArrayList<String> of quiz answers.
+     */
+    static ArrayList<String> getAnswers()
+    {
+        ArrayList<String> answers = new ArrayList<String>(100);
+        ArrayList<Quiz>quizzes = Quiz.getQuizzes();
+        for (Quiz q : quizzes)
+        {
+            answers.add(q.getAnswer() );
+        }
+        return answers;
+    }
+    
+    /**
      * @return an ArrayList of Quiz objects.
      */
     static ArrayList<Quiz> getQuizzes()

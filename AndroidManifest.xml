@@ -27,12 +27,8 @@
 			android:label="@string/title_activity_random_pick" >
 		</activity>
 		<activity
-			android:name="com.mnishiguchi.android.quizzesuscis.ListActivity"
-			android:label="@string/title_activity_list"
-			android:parentActivityName=".ListView" >
-			<meta-data
-				android:name="android.support.PARENT_ACTIVITY"
-				android:value="ListView" />
+			android:name="com.mnishiguchi.android.quizzesuscis.QuizListActivity"
+			android:label="@string/title_activity_quiz_list">
 		</activity>
 	</application>
 

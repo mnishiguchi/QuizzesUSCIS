@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class QuizListActivity extends ListActivity
 {
     ArrayList<String> mQuestions;
+    ArrayList<String> mAnswers = Quiz.getAnswers();
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,8 +44,8 @@ public class QuizListActivity extends ListActivity
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick( AdapterView<?> adapter, View v, int position, long id ) {
-            String question = mQuestions.get(position);
-            Toast.makeText(QuizListActivity.this, String.format("%s was chosen", question),
+            String answer = mAnswers.get(position);
+            Toast.makeText(QuizListActivity.this, String.format("Answer: %s", answer),
                     Toast.LENGTH_SHORT).show();
             }
         });
