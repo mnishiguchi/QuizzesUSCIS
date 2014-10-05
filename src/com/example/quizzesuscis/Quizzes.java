@@ -2,14 +2,17 @@ package com.example.quizzesuscis;
 
 import java.util.ArrayList;
 
+/**
+ * The static method Quizzes.getQuizzes() initialize a set of 100 questions and their answers as an ArrayList of Quiz objects.
+ */
 public class Quizzes
 {
-    // INSTANCE VARIABLES
-    ArrayList<Quiz> quizzes = new ArrayList<Quiz>(100);
-    
-    /** CONSTRUCTOR */
-    public Quizzes()
+    /**
+     * @return an ArrayList of Quiz objects.
+     */
+    static ArrayList<Quiz> getQuizzes()
     {
+        ArrayList<Quiz> quizzes = new ArrayList<Quiz>(100);
         quizzes.add(new Quiz("1. What is the supreme law of the land?", "the Constitution"));
         quizzes.add(new Quiz("2. What does the Constitution do?",
                 "sets up the government|defines the government|protects basic rights of Americans"));
@@ -230,6 +233,7 @@ public class Quizzes
                 "New YearÅfs Day|Martin Luther King, Jr. Day|PresidentsÅf Day|" +
                 "Memorial Day|Independence Day|Labor Day|Columbus Day|" +
                 "Veterans Day|Thanksgiving|Christmas"));
+        return quizzes;
     }
 
 }
