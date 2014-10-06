@@ -41,7 +41,7 @@ public class QuizListActivity extends ListActivity
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick( AdapterView<?> adapter, View v, int position, long id ) {
-                String answer = Quiz.getAnswer(position);
+                String answer = Quiz.getQuiz(position).getAnswer();
                 Toast.makeText(QuizListActivity.this, answer, Toast.LENGTH_SHORT).show();
             }
         });

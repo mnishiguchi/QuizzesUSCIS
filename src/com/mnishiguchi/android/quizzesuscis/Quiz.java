@@ -11,7 +11,6 @@ public class Quiz
     // CLASS VARIABLE
     private static ArrayList<Quiz> sQuizzes = new ArrayList<Quiz>(100);
     private static ArrayList<String> sQuestions = new ArrayList<String>(100);
-    private static ArrayList<String> sAnswers = new ArrayList<String>(100);
     
     // INSTANCE VARIABLE
     private String mQuestion;
@@ -23,19 +22,19 @@ public class Quiz
         this.mQuestion = question;
         this.mAnswer = answer;
     }
-
-    public String getAnswer()
-    {
-        return mAnswer;
-    }
-
+    
     public String getQuestion()
     {
         return mQuestion;
     }
     
+    public String getAnswer()
+    {
+        return mAnswer;
+    }
+
     /**
-     * @return an ArrayList<String> of quiz questions.
+     * @return an ArrayList<String> of one hundred quiz questions.
      */
     static ArrayList<String> getQuestions()
     {
@@ -48,30 +47,6 @@ public class Quiz
             sQuestions.add(q.mQuestion);
         }
         return sQuestions;
-    }
-    
-    /**
-     * @return an answer string for the specified quiz number.
-     */  
-    static String getAnswer(int index)
-    {
-        return Quiz.getAnswers().get(index);
-    }
-    
-    /**
-     * @return an ArrayList<String> of quiz answers.
-     */
-    static ArrayList<String> getAnswers()
-    {
-        // Check if the array is empty.
-        if (!sAnswers.isEmpty() ) return sAnswers;
-        
-        sQuizzes = Quiz.getQuizzes();
-        for (Quiz q : sQuizzes)
-        {
-            sAnswers.add(q.mAnswer);
-        }
-        return sAnswers;
     }
     
     /**
