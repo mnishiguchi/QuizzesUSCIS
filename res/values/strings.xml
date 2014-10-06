@@ -12,5 +12,6 @@
 	<string name="tv_quiz_hint">question/answer</string>
 	<string name="btn_list_mode">List Mode</string>
 	<string name="btn_random_mode">Random Mode</string>
+	<string name="spacer"></string>
 
 </resources>

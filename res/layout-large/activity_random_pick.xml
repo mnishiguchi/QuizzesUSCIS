@@ -14,32 +14,34 @@
 		android:hint="@string/tv_quiz_hint"
 		android:textSize="32sp"
 		/>
+
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_centerInParent="true"
-		>
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="50dp" >
+
 		<Button
 			android:id="@+id/btn_random_pick"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_width="200dp"
+			android:layout_height="120dp"
 			android:text="@string/btn_random_pick"
-			android:textSize="16sp"
+			android:textSize="32sp"
 			/>
 		<TextView
-			android:layout_width="16dp"
+			android:layout_width="100dp"
 			android:layout_height="wrap_content"
 			android:text="@string/spacer"
 			/>
 		<ToggleButton
 			android:id="@+id/btn_question_answer"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="right"
+			android:layout_width="200dp"
+			android:layout_height="120dp"
 			android:textOn="Back to Question"
     		android:textOff="Show Answer"
 			android:text="@string/btn_question_answer"
-			android:textSize = "16sp"
+			android:textSize = "32sp"
 			/>
 	</LinearLayout>
 </RelativeLayout>
