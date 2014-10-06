@@ -9,7 +9,9 @@ import java.util.ArrayList;
 public class Quiz
 {
     // CLASS VARIABLE
+    // To remember the quizzes.
     private static ArrayList<Quiz> sQuizzes = new ArrayList<Quiz>(100);
+    // To remember the quiz questions.
     private static ArrayList<String> sQuestions = new ArrayList<String>(100);
     
     // INSTANCE VARIABLE
@@ -41,8 +43,7 @@ public class Quiz
         // Check if the array is empty.
         if (!sQuestions.isEmpty() ) return sQuestions;
         
-        sQuizzes = Quiz.getQuizzes();
-        for (Quiz q : sQuizzes)
+        for (Quiz q : Quiz.getQuizzes() )
         { 
             sQuestions.add(q.mQuestion);
         }
@@ -62,7 +63,7 @@ public class Quiz
      */
     static ArrayList<Quiz> getQuizzes()
     {
-        // Check if the array is empty.
+        // Check if the array is already initialized.
         if (!sQuizzes.isEmpty() ) return sQuizzes;
         
         // Initialize the array.
