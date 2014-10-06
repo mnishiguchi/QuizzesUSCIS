@@ -23,7 +23,7 @@ public class RandomPickActivity extends ActionBarActivity
     ToggleButton mAnswerToggle;
     Button mRandomButton;
     Random mRandom = new Random();
-    int mQuizIndex;
+    int mIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,15 +39,15 @@ public class RandomPickActivity extends ActionBarActivity
         if (savedInstanceState == null)
         {
             // Random-pick a first quiz.
-            mQuizIndex = mRandom.nextInt(100);
+            mIndex = mRandom.nextInt(100);
         }
         else
         {
             // Retrieved the saved index if any.
-            mQuizIndex = savedInstanceState.getInt(KEY_QUIZ_INDEX, 0);
+            mIndex = savedInstanceState.getInt(KEY_QUIZ_INDEX, 0);
         }
         // Show the quiz.
-        mQuiz = Quiz.getQuizzes(mQuizIndex);
+        mQuiz = Quiz.getQuiz(mIndex);
         mTextView.setText(mQuiz.getQuestion() );
         
         // Set an onClickListener on the Random Button
@@ -55,8 +55,8 @@ public class RandomPickActivity extends ActionBarActivity
             public void onClick(View clickedView)
             {
                 // Random-pick a next quiz and show it.
-                mQuizIndex = mRandom.nextInt(100);
-                mQuiz = Quiz.getQuizzes(mQuizIndex);
+                mIndex = mRandom.nextInt(100);
+                mQuiz = Quiz.getQuiz(mIndex);
                 mTextView.setText(mQuiz.getQuestion() );
                         
                 // If the toggle on, turn it off.
@@ -79,7 +79,7 @@ public class RandomPickActivity extends ActionBarActivity
     {
         super.onSaveInstanceState(savedInstanceState);
         // Log.i(TAG, "onSaveInstanceState");
-        savedInstanceState.putInt(KEY_QUIZ_INDEX, mQuizIndex);
+        savedInstanceState.putInt(KEY_QUIZ_INDEX, mIndex);
     }
 
 }

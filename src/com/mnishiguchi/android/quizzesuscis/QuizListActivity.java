@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 // If the only control in an activity, use the ListActivity class (rather than Activity).
 public class QuizListActivity extends ListActivity
-{
-    ArrayList<String> mQuestions;
-    ArrayList<String> mAnswers = Quiz.getAnswers();
+{    
+    //  INSTANCE VARIABLES
+    ArrayList<String> mQuestions = Quiz.getQuestions();
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,14 +24,11 @@ public class QuizListActivity extends ListActivity
         
         // Delete the setContentView statement from the onCreate method
         // because ListActivity doesn't need a layout xml file of the entire activity.
-        
-        // Prepare the data to show on the list.
-        mQuestions = Quiz.getQuestions();
-                
+            
         // Create a new ArrayAdapter to hold the elements that will be displayed in the ListView.
         this.setListAdapter(new ArrayAdapter<String> (this,
-                R.layout.list_item, R.id.list_item, mQuestions ) );
-        
+                R.layout.list_item, R.id.list_item, mQuestions) );
+            
             /* ArrayAdapter<String> Context context, int resource, int textViewResourceId, String[] objects)
              * context - The instance of ListActivity class that is currently running.
              * resource - The resource ID for the list item layout file.
@@ -44,9 +41,8 @@ public class QuizListActivity extends ListActivity
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick( AdapterView<?> adapter, View v, int position, long id ) {
-            String answer = mAnswers.get(position);
-            Toast.makeText(QuizListActivity.this, String.format("Answer: %s", answer),
-                    Toast.LENGTH_SHORT).show();
+                String answer = Quiz.getAnswer(position);
+                Toast.makeText(QuizListActivity.this, answer, Toast.LENGTH_SHORT).show();
             }
         });
     }
