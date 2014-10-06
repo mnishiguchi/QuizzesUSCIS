@@ -8,65 +8,10 @@ import java.util.ArrayList;
  */
 public class Quiz
 {
-    // CLASS VARIABLE
-    // To remember the quizzes.
+    // CLASS VARIABLES
     private static ArrayList<Quiz> sQuizzes = new ArrayList<Quiz>(100);
-    // To remember the quiz questions.
-    private static ArrayList<String> sQuestions = new ArrayList<String>(100);
-    
-    // INSTANCE VARIABLE
-    private String mQuestion;
-    private String mAnswer;
-    
-    /** CONSTRUCTOR */
-    public Quiz(String question, String answer)
+    static // Initialize the array.
     {
-        this.mQuestion = question;
-        this.mAnswer = answer;
-    }
-    
-    public String getQuestion()
-    {
-        return mQuestion;
-    }
-    
-    public String getAnswer()
-    {
-        return mAnswer;
-    }
-
-    /**
-     * @return an ArrayList<String> of one hundred quiz questions.
-     */
-    static ArrayList<String> getQuestions()
-    {
-        // Check if the array is empty.
-        if (!sQuestions.isEmpty() ) return sQuestions;
-        
-        for (Quiz q : Quiz.getQuizzes() )
-        { 
-            sQuestions.add(q.mQuestion);
-        }
-        return sQuestions;
-    }
-    
-    /**
-     * @return a Quiz object of the specified quiz index.
-     */
-    static Quiz getQuiz(int index)
-    {
-        return Quiz.getQuizzes().get(index);
-    }
-    
-    /**
-     * @return One hundred quizzes as an ArrayList of Quiz objects.
-     */
-    static ArrayList<Quiz> getQuizzes()
-    {
-        // Check if the array is already initialized.
-        if (!sQuizzes.isEmpty() ) return sQuizzes;
-        
-        // Initialize the array.
         sQuizzes.add(new Quiz("1. What is the supreme law of the land?",
                 "the Constitution"));
         sQuizzes.add(new Quiz("2. What does the Constitution do?",
@@ -296,6 +241,59 @@ public class Quiz
         sQuizzes.add(new Quiz("100. Name two national U.S. holidays.",
                 "New YearÅfs Day | Martin Luther King, Jr. Day | PresidentsÅf Day | Memorial Day | Independence Day | " +
                 "Labor Day | Columbus Day | Veterans Day | Thanksgiving | Christmas"));
+    } 
+    // To remember the quiz questions.
+    private static ArrayList<String> sQuestions = new ArrayList<String>(100);
+    
+    // INSTANCE VARIABLE
+    private String mQuestion;
+    private String mAnswer;
+    
+    /** CONSTRUCTOR */
+    public Quiz(String question, String answer)
+    {
+        this.mQuestion = question;
+        this.mAnswer = answer;
+    }
+    
+    public String getQuestion()
+    {
+        return mQuestion;
+    }
+    
+    public String getAnswer()
+    {
+        return mAnswer;
+    }
+
+    /**
+     * @return an ArrayList<String> of one hundred quiz questions.
+     */
+    static ArrayList<String> getQuestions()
+    {
+        // Check if the array is empty.
+        if (!sQuestions.isEmpty() ) return sQuestions;
+        
+        for (Quiz q : sQuizzes)
+        { 
+            sQuestions.add(q.mQuestion);
+        }
+        return sQuestions;
+    }
+    
+    /**
+     * @return a Quiz object of the specified quiz index.
+     */
+    static Quiz getQuiz(int index)
+    {
+        return sQuizzes.get(index);
+    }
+    
+    /**
+     * @return One hundred quizzes as an ArrayList of Quiz objects.
+     */
+    static ArrayList<Quiz> getQuizzes()
+    {
         return sQuizzes;
     }
     
