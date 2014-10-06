@@ -4,6 +4,7 @@ import java.util.Random;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,12 +13,17 @@ import android.widget.CompoundButton;
 
 public class RandomPickActivity extends ActionBarActivity
 {
+    // CONSTANTS
+    private static final String TAG = "RandomPickActivity";
+    private static final String KEY_QUIZ_INDEX = "quiz_index";
+    
     //  INSTANCE VARIABLES
     Quiz mQuiz;
-    TextView mQuestionAnswerText;
+    TextView mTextView;
     ToggleButton mAnswerToggle;
     Button mRandomButton;
     Random mRandom = new Random();
+    int mQuizIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,21 +32,32 @@ public class RandomPickActivity extends ActionBarActivity
         setContentView(R.layout.activity_random_pick);
         
         // Get access to the UI components.
-        mQuestionAnswerText = (TextView) findViewById(R.id.tv_quiz);     
+        mTextView = (TextView) findViewById(R.id.tv_quiz);     
         mAnswerToggle = (ToggleButton)findViewById(R.id.btn_question_answer);
         mRandomButton = (Button)findViewById(R.id.btn_random_pick);
         
-        // Random-pick a first quiz and show it.
-        mQuiz = Quiz.getQuizzes().get(mRandom.nextInt(100) );
-        mQuestionAnswerText.setText(mQuiz.getQuestion() );
+        if (savedInstanceState == null)
+        {
+            // Random-pick a first quiz.
+            mQuizIndex = mRandom.nextInt(100);
+        }
+        else
+        {
+            // Retrieved the saved index if any.
+            mQuizIndex = savedInstanceState.getInt(KEY_QUIZ_INDEX, 0);
+        }
+        // Show the quiz.
+        mQuiz = Quiz.getQuizzes(mQuizIndex);
+        mTextView.setText(mQuiz.getQuestion() );
         
         // Set an onClickListener on the Random Button
         mRandomButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View clickedView)
             {
                 // Random-pick a next quiz and show it.
-                mQuiz = Quiz.getQuizzes().get(mRandom.nextInt(100) );
-                mQuestionAnswerText.setText(mQuiz.getQuestion() );
+                mQuizIndex = mRandom.nextInt(100);
+                mQuiz = Quiz.getQuizzes(mQuizIndex);
+                mTextView.setText(mQuiz.getQuestion() );
                         
                 // If the toggle on, turn it off.
                  if (mAnswerToggle.isChecked() ) mAnswerToggle.setChecked(false);
@@ -51,10 +68,18 @@ public class RandomPickActivity extends ActionBarActivity
         mAnswerToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                if (isChecked) mQuestionAnswerText.setText(mQuiz.getAnswer() );  // show answer
-                else mQuestionAnswerText.setText(mQuiz.getQuestion() );  // show question
+                if (isChecked) mTextView.setText(mQuiz.getAnswer() );  // show answer
+                else mTextView.setText(mQuiz.getQuestion() );  // show question
             }
         });
+    }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState)
+    {
+        super.onSaveInstanceState(savedInstanceState);
+        // Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_QUIZ_INDEX, mQuizIndex);
     }
 
 }

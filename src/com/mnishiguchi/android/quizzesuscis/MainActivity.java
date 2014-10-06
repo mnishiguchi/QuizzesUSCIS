@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends ActionBarActivity
-{
+{    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -25,6 +25,7 @@ public class MainActivity extends ActionBarActivity
                         startActivity(i);
                     }
                     break;
+                    
                     case R.id.btn_random_mode:
                     {
                         Intent i = new Intent(MainActivity.this, RandomPickActivity.class);
@@ -38,5 +39,5 @@ public class MainActivity extends ActionBarActivity
         findViewById(R.id.btn_list_mode).setOnClickListener(handler);
         findViewById(R.id.btn_random_mode).setOnClickListener(handler);
     }
-
+    
 }

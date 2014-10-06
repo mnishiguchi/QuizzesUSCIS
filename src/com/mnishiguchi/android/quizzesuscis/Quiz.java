@@ -60,6 +60,14 @@ public class Quiz
     }
     
     /**
+     * @return a Quiz object of the specified quiz index.
+     */
+    static Quiz getQuizzes(int index)
+    {
+        return Quiz.getQuizzes().get(index);
+    }
+    
+    /**
      * @return One hundred quizzes as an ArrayList of Quiz objects.
      */
     static ArrayList<Quiz> getQuizzes()
