@@ -13,5 +13,15 @@
 	<string name="btn_list_mode">List Mode</string>
 	<string name="btn_random_mode">Random Mode</string>
 	<string name="spacer"></string>
+	<string name="menu_item_info">Info</string>
+	<string name="title_activity_info">InfoActivity</string>
+	<string name="info_message">
+		The civics test is an oral test and the USCIS Officer will ask the applicant up to 10 of the 100 civics questions.
+		An applicant must answer 6 out of 10 questions correctly to pass the civics portion of the naturalization test. 
+		On the naturalization test, some answers may change because of elections or appointments. As you study for the test, 
+		make sure that you know the most current answers to these questions. Answer these questions with the name of the official 
+		who is serving at the time of your eligibility interview with USCIS. The USCIS Officer will not accept an incorrect answer.
+	</string>
+	<string name="tv_info_header">Civics (History and Government) Questions for the Naturalization Test</string>
 
 </resources>
